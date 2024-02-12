@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    blog
+{% endblock  %}
+
+{% block css-file %}
+<link rel ="stylesheet" href ="{% static 'blog/index.css' %}">
+<link rel ="stylesheet" href ="{% static 'blog/posts.css' %}">
+{% endblock %}    
+
+{% block content %} 
+   
+   <section id="welcome">
+    <header>
+        <img src= "{% static 'blog/images/me.JPG' %}" alt ="">
+        <h1> My thoughts</h1>    
+   </header>
+   <p> these are my thoughts about life and the way i feel about the world</p>
+   </section>
+
+   <section id="latest-posts">
+    <h2> My latest thoughts</h2>
+    <ul>
+        {% for post in posts  %}
+            {% include "blog/includes/posts.html" %}
+        {% endfor %}
+    </ul>
+   </section>
+
+   <section id ="about">
+    <h2> What i love to do</h2>
+    <p>
+        i love programming and explore new technologies in general
+    </p>
+    <p>
+        my goal is to keep on growing as a developer and elevate to new heights
+    </p>
+   </section>
+    
+{% endblock  %}
